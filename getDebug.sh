@@ -5,7 +5,7 @@ set -euo pipefail
 tsBinary=$(which tailscale)
 TIMESTAMP="$(date +%Y%m%d_%H%M%S)"
 HOSTNAME="$(hostname 2>/dev/null || echo unknown-host)"
-BASE_DIR="network_info_${HOSTNAME}_${TIMESTAMP}"
+BASE_DIR="linux_info_${HOSTNAME}_${TIMESTAMP}"
 ARCHIVE_NAME="${BASE_DIR}.tar.gz"
 
 # Check if root and whether to use sudo or doas
