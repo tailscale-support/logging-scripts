@@ -129,6 +129,7 @@ if command -v tailscale >/dev/null 2>&1; then
     run_and_log "tailscale_debug_ts2021.txt" tailscale debug ts2021 --verbose
     run_and_log "tailscale_bugreport.txt" tailscale bugreport
     run_and_log "tailscale_debug_prefs.txt" tailscale debug prefs
+	run_and_log "tailscale_dns.txt" tailscale dns status
 else
     echo "tailscale command not found" > "${BASE_DIR}/tailscale_missing.txt"
 fi
