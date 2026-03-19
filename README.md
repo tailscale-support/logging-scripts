@@ -6,7 +6,7 @@ Storage for specific device log collection scripts for additiuonal information t
 
 2. **Make the Script Executable:** Navigate to the directory where the script is located and make it executable.
 ```
-chmod +x signNodes.sh
+chmod +x getDebug.sh
 ```
 3. **Run the Script:** Execute the script
 ```
