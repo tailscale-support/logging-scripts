@@ -130,6 +130,15 @@ if command -v tailscale >/dev/null 2>&1; then
     run_and_log "tailscale_bugreport.txt" tailscale bugreport
     run_and_log "tailscale_debug_prefs.txt" tailscale debug prefs
 	run_and_log "tailscale_dns.txt" tailscale dns status
+    {
+          echo "===== Command: tailscale ping (all peers) ====="
+          echo "===== Timestamp: $(date -Is) ====="
+          echo
+          tailscale status | awk '/^$/{exit} {print $2}' | while read -r host; do
+              tailscale ping -c 1 "$host" 2>&1
+              echo ""
+          done
+     } > "${BASE_DIR}/tailscale_ping_peers.txt" 2>&1 || true
 else
     echo "tailscale command not found" > "${BASE_DIR}/tailscale_missing.txt"
 fi
