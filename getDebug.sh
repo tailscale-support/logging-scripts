@@ -122,6 +122,12 @@ if command -v nmcli >/dev/null 2>&1; then
     run_and_log "nmcli_connection_show.txt" nmcli connection show
 fi
 
+# Tailscale systemd info if available
+if command -v systemctl >/dev/null 2>&1; then
+    run_and_log "systemctl_status_tailscaled.txt" systemctl -l --no-pager status tailscaled.service
+	run_and_log "systemctl_tailscaled.service.txt" systemctl cat tailscaled.service
+fi
+
 # Tailscale info if available
 if command -v tailscale >/dev/null 2>&1; then
     run_and_log "tailscale_status.txt" tailscale status
